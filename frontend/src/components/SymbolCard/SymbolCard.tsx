@@ -1,5 +1,6 @@
 import './symbolCard.css';
 import { useAppSelector } from '@/hooks/redux';
+import { useGetCardClassName } from '@/hooks/useGetCardClassName';
 import SymbolCardContent from '../SymbolCardContent/SymbolCardContent';
 import SymbolCardHeader from '../SymbolCardHeader/SymbolCardHeader';
 
@@ -20,9 +21,10 @@ const SymbolCard = ({ id, onClick, price }: SymbolCardProps) => {
   };
 
   const formattedPrice = Math.round(price);
+  const { className, onAnimationEnds } = useGetCardClassName(id, formattedPrice);
 
   return (
-    <div onClick={handleOnClick} className={'symbolCard'}>
+    <div onClick={handleOnClick} className={className} onAnimationEnd={onAnimationEnds}>
       <SymbolCardHeader id={id} trend={trend} />
 
       <SymbolCardContent
