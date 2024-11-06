@@ -1,4 +1,4 @@
-import { useAppSelector } from './redux';
+import { useAppSelector } from '../../../../hooks/redux';
 import { usePriceChangeTracker } from './usePriceChangeTracker';
 
 export const useGetCardClassName = (id: string, price: number) => {

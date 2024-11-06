@@ -1,8 +1,8 @@
 import './symbolCard.css';
 import { useAppSelector } from '@/hooks/redux';
-import { useGetCardClassName } from '@/hooks/useGetCardClassName';
-import SymbolCardContent from '../SymbolCardContent/SymbolCardContent';
-import SymbolCardHeader from '../SymbolCardHeader/SymbolCardHeader';
+import SymbolCardContent from './src/components/SymbolCardContent/SymbolCardContent';
+import SymbolCardHeader from './src/components/SymbolCardHeader/SymbolCardHeader';
+import { useGetCardClassName } from './src/hooks/useGetCardClassName';
 
 type SymbolCardProps = {
   id: string;
