@@ -10,7 +10,11 @@ type SymbolCardProps = {
 };
 
 const SymbolCard = ({ id, onClick, price }: SymbolCardProps) => {
-  const { trend, companyName } = useAppSelector((state) => state.stocks.entities[id]);
+  const { trend, companyName, industry, marketCap, showCardInfo } = useAppSelector((state) => ({
+    ...state.stocks.entities[id],
+    showCardInfo: state.store.showCardInfo
+  }));
+
   const handleOnClick = () => {
     onClick(id);
   };
@@ -22,7 +26,7 @@ const SymbolCard = ({ id, onClick, price }: SymbolCardProps) => {
       <SymbolCardHeader id={id} trend={trend} />
 
       <SymbolCardContent
-        showCardInfo={false}
+        showCardInfo={showCardInfo}
         price={formattedPrice}
         companyName={companyName}
         industry={industry}
